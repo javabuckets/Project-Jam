@@ -20,7 +20,7 @@ import com.thom.gameengine.spritesystem.ImageHandler;
 import com.thom.gameengine.spritesystem.SpriteSheet;
 
 /**
- * @author Thomas Boel Micheelsen & Ben Amram
+ * @author Thomas Boel Micheelsen & Benjamin Amram
  * @since 23-04-2017
  */
 public class JAM extends Game

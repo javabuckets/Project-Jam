@@ -5,14 +5,21 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import com.thom.gameengine.action.ExitProgramAction;
+import com.thom.gameengine.action.OpenGuiAction;
+import com.thom.gameengine.gui.Button;
 import com.thom.gameengine.gui.ComponentHandler;
 import com.thom.gameengine.gui.GuiScreen;
 import com.thom.gameengine.gui.Label;
+import com.thom.gameengine.keybinding.KeyBind;
+import com.thom.gameengine.keybinding.KeyBinding;
 import com.thom.gameengine.soundsystem.SoundHandler;
+import com.thom.gameengine.soundsystem.TrackList;
 import com.thom.gameengine.spritesystem.ImageHandler;
+import com.thom.gameengine.test.PrintAction;
 
 /**
- * @author Thomas Boel Micheelsen & Ben Amram
+ * @author Thomas Boel Micheelsen & Benjamin Amram
  * @since 23-04-2017
  */
 public class GuiMainMenu extends GuiScreen
@@ -57,6 +64,10 @@ public class GuiMainMenu extends GuiScreen
 		exit = ComponentHandler.addScaledImageLabel(exit, new Point(90, 320), ImageHandler.getIcon(assetsPath + "exit.png"), 150, 75);
 		panel.add(exit, 2, 0);
 		
+		Button btnTest = new Button().addIdleState(ImageHandler.getIcon(assetsPath + "idle.png")).addHoverState(ImageHandler.getIcon(assetsPath + "hover.png"));
+		btnTest = ComponentHandler.addButton(btnTest, new Point(50, 50), new Dimension(100, 20), "Test");
+		panel.add(btnTest, 3, 0);
+		
 		sidePanel.addMouseListener(new MouseListener() 
 		{	
 			public void mouseReleased(MouseEvent e) {}
@@ -88,6 +99,31 @@ public class GuiMainMenu extends GuiScreen
 			}
 		});
 		
-		SoundHandler.playSound(assetsPath + "sounds\\music\\" + "Stal.wav");
+		if (SoundHandler.clips.size() == 0) 
+		{
+			SoundHandler.playSound(assetsPath + "sounds\\music\\" + "AlbertBeger_Improv3halasam.wav");
+		}
+		//backgroundMusic();
+	}
+	
+	private void backgroundMusic()
+	{
+		TrackList tracklist = new TrackList(assetsPath + "sounds\\music\\");
+		tracklist.addTrack("Stal");
+		tracklist.addTrack("AlbertBeger_Improv3halasam");
+		tracklist.addTrack("GospelOfMars_FakeTurkishCoup");
+		tracklist.addTrack("GospelOfMars_Scarabs");
+		tracklist.addTrack("LoboLoco_CulturalExchanges");
+		tracklist.addTrack("LoboLoco_TwistingKangurus");
+		
+		//SoundHandler.
+	}
+	
+	@Override
+	public void handleKeyBinds() 
+	{
+		KeyBinding.addKeyBind(sidePanel, KeyBind.P, new OpenGuiAction(new GuiPlay(), this));
+		KeyBinding.addKeyBind(sidePanel, KeyBind.S, new OpenGuiAction(new GuiSettings(), this));
+		KeyBinding.addKeyBind(sidePanel, KeyBind.E, new ExitProgramAction());
 	}
 }
