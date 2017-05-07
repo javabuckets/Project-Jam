@@ -15,6 +15,10 @@ import com.thom.gameengine.spritesystem.ImageHandler;
 import com.thom.jam.JAM;
 import com.thom.jam.action.PlayPianoKeyAction;
 
+/**
+ * @author Thomas Boel Micheelsen & Benjamin Amram
+ * @since 05-05-2017
+ */
 public class Piano extends Instrument
 {
 	private JAM jam;
@@ -27,13 +31,13 @@ public class Piano extends Instrument
 
 	public void initializeKeyBinds(JComponent jcomp)
 	{
-		KeyBinding.addKeyBind(jcomp, KeyBind.A, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "c", 1));
-		KeyBinding.addKeyBind(jcomp, KeyBind.S, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "d", 1));
-		KeyBinding.addKeyBind(jcomp, KeyBind.D, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "e", 1));
-		KeyBinding.addKeyBind(jcomp, KeyBind.F, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "f", 1));
-		KeyBinding.addKeyBind(jcomp, KeyBind.G, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "g", 1));
-		KeyBinding.addKeyBind(jcomp, KeyBind.H, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "a", 1));
-		KeyBinding.addKeyBind(jcomp, KeyBind.J, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "b", 1));
+		KeyBinding.addKeyBind(jcomp, KeyBind.A, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "c", 4));
+		KeyBinding.addKeyBind(jcomp, KeyBind.S, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "d", 4));
+		KeyBinding.addKeyBind(jcomp, KeyBind.D, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "e", 4));
+		KeyBinding.addKeyBind(jcomp, KeyBind.F, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "f", 4));
+		KeyBinding.addKeyBind(jcomp, KeyBind.G, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "g", 4));
+		KeyBinding.addKeyBind(jcomp, KeyBind.H, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "a", 4));
+		KeyBinding.addKeyBind(jcomp, KeyBind.J, new PlayPianoKeyAction(this, jam.getAssetsPath() + "sounds\\", "b", 4));
 	}
 
 	public void keyPressAnimation(String key)

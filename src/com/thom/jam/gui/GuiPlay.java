@@ -3,15 +3,13 @@ package com.thom.jam.gui;
 import java.awt.Dimension;
 import java.awt.Point;
 
-import com.thom.gameengine.action.OpenGameAction;
-import com.thom.gameengine.action.OpenGuiAction;
+import com.thom.gameengine.action.OpenGuiWithConstructorConditionsAction;
 import com.thom.gameengine.gui.ComponentHandler;
 import com.thom.gameengine.gui.GuiScreen;
 import com.thom.gameengine.gui.Label;
 import com.thom.gameengine.keybinding.KeyBind;
 import com.thom.gameengine.keybinding.KeyBinding;
 import com.thom.gameengine.spritesystem.ImageHandler;
-import com.thom.jam.JAM;
 import com.thom.jam.action.OpenMainMenuGuiAction;
 
 /**
@@ -62,7 +60,9 @@ public class GuiPlay extends GuiScreen
 	@Override
 	public void handleKeyBinds() 
 	{
-		KeyBinding.addKeyBind(sidePanel, KeyBind.K1, new OpenGameAction(JAM.class, this));
+//		KeyBinding.addKeyBind(sidePanel, KeyBind.K1, new OpenGameAction(JAM.class, this));
+		KeyBinding.addKeyBind(sidePanel, KeyBind.K1, new OpenGuiWithConstructorConditionsAction(new GuiInstrumentSelection(1), this));
+		KeyBinding.addKeyBind(sidePanel, KeyBind.K2, new OpenGuiWithConstructorConditionsAction(new GuiInstrumentSelection(2), this));
 		KeyBinding.addKeyBind(sidePanel, KeyBind.B, new OpenMainMenuGuiAction(this));
 	}
 }

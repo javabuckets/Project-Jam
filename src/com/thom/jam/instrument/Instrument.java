@@ -1,7 +1,13 @@
 package com.thom.jam.instrument;
 
+import javax.swing.JComponent;
+
 import com.thom.gameengine.soundsystem.SoundHandler;
 
+/**
+ * @author Thomas Boel Micheelsen & Benjamin Amram
+ * @since 05-05-2017
+ */
 public abstract class Instrument 
 {
 	private String instrumentName;
@@ -9,10 +15,9 @@ public abstract class Instrument
 	public Instrument(String name) 
 	{
 		this.instrumentName = name;
-		//initializeKeyBinds();
 	}
 	
-	//public abstract void initializeKeyBinds();
+	public abstract void initializeKeyBinds(JComponent jComponent);
 	
 	public void playSound(String soundFolder, String sound)
 	{

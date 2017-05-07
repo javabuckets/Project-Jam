@@ -20,6 +20,7 @@ import com.thom.gameengine.soundsystem.SoundHandler;
 import com.thom.gameengine.soundsystem.TrackList;
 import com.thom.gameengine.spritesystem.ImageHandler;
 import com.thom.gameengine.test.PrintAction;
+import com.thom.jam.JAM;
 
 /**
  * @author Thomas Boel Micheelsen & Benjamin Amram
@@ -27,7 +28,7 @@ import com.thom.gameengine.test.PrintAction;
  */
 public class GuiMainMenu extends GuiScreen
 {
-	public static final String resFolder = "C:\\Users\\Thomas\\Desktop\\Projects\\Jam\\Resources\\";
+	public static final String resFolder = JAM.resFolder;
 	
 	public GuiMainMenu(String title, Dimension size) 
 	{
@@ -124,8 +125,8 @@ public class GuiMainMenu extends GuiScreen
 	@Override
 	public void handleKeyBinds() 
 	{
-		KeyBinding.addKeyBind(sidePanel, KeyBind.P, new OpenGuiAction(new GuiPlay(), this));
-		KeyBinding.addKeyBind(sidePanel, KeyBind.S, new OpenGuiAction(new GuiSettings(), this));
+		KeyBinding.addKeyBind(sidePanel, KeyBind.P, new OpenGuiAction(GuiPlay.class, this));
+		KeyBinding.addKeyBind(sidePanel, KeyBind.S, new OpenGuiAction(GuiSettings.class, this));
 		KeyBinding.addKeyBind(sidePanel, KeyBind.E, new ExitProgramAction());
 	}
 }

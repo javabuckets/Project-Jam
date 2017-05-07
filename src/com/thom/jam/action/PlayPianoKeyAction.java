@@ -6,6 +6,10 @@ import com.thom.gameengine.action.GameAction;
 import com.thom.gameengine.soundsystem.SoundHandler;
 import com.thom.jam.instrument.Piano;
 
+/**
+ * @author Thomas Boel Micheelsen & Benjamin Amram
+ * @since 05-05-2017
+ */
 public class PlayPianoKeyAction extends GameAction
 {
 	private Piano piano;
