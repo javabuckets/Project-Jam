@@ -15,8 +15,8 @@ import com.thom.gameengine.spritesystem.AnimatedSprite;
 import com.thom.gameengine.spritesystem.ImageHandler;
 import com.thom.gameengine.spritesystem.SpriteSheet;
 import com.thom.jam.gui.GuiMainMenu;
+import com.thom.jam.instrument.Guitar;
 import com.thom.jam.instrument.Instrument;
-import com.thom.jam.instrument.Piano;
 
 /**
  * @author Thomas Boel Micheelsen & Benjamin Amram
@@ -44,16 +44,17 @@ public class JAM extends Game
 	ArrayList<Player> playersInPlay = new ArrayList<Player>();
 	
 	// GUI Components
-	Label scene, tilebar, pianoTexture;
+	Label scene, tilebar, pianoTexture, guitarTexture;
 	
 	public JAM()
 	{
 		super(new Dimension(WIDTH, HEIGHT), true);
+		setTitle("Jam");
 		setAssetsPath(resFolder);
 		
 		// The Scene
 		scene = new Label();
-		ComponentHandler.addScaledImageLabel(scene, new Point(0, 0), ImageHandler.getIcon(assetsPath + "SceneTest.png"), WIDTH - 16, HEIGHT - 39);
+		ComponentHandler.addScaledImageLabel(scene, new Point(0, 0), ImageHandler.getIcon(assetsPath + "studio.png"), WIDTH - 16, HEIGHT - 39);
 		addComponent(scene, 0);
 		
 		ComponentHandler.addPlayer(player, new Point(WIDTH / 2, HEIGHT / 2), playerCollider);
@@ -63,9 +64,13 @@ public class JAM extends Game
 		ComponentHandler.addImageLabel(tilebar, new Point(WIDTH / 2 - (299 / 2), 250), ImageHandler.getIcon(assetsPath + "tilebar.png"));
 		addComponent(tilebar, 3);
 		
-		pianoTexture = new Label();
+		/*pianoTexture = new Label();
 		ComponentHandler.addImageLabel(pianoTexture, new Point(50, 350), ImageHandler.getIcon(assetsPath + "piano.png"));
-		addComponent(pianoTexture, 3);
+		addComponent(pianoTexture, 3);*/
+		
+		guitarTexture = new Label();
+		ComponentHandler.addScaledImageLabel(guitarTexture, new Point(50, 350), ImageHandler.getIcon(assetsPath + "guitar.png"), 425, 319);
+		addComponent(guitarTexture, 3);
 		
 		initialize();
 	}
@@ -73,8 +78,11 @@ public class JAM extends Game
 	@Override
 	public void initialize() 
 	{		
-		Piano piano = new Piano(this);
-		initializeInstrument(piano, pianoTexture);
+		/*Piano piano = new Piano(this);
+		initializeInstrument(piano, pianoTexture);*/
+		
+		Guitar guitar = new Guitar(this);
+		initializeInstrument(guitar, guitarTexture);
 		
 		super.initialize();
 	}
